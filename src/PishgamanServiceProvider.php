@@ -5,6 +5,8 @@ namespace Pishgaman\Pishgaman;
 use Illuminate\Support\ServiceProvider;
 use Pishgaman\Pishgaman\Library\Theme\ThemeManager;
 use Pishgaman\Pishgaman\Library\Theme\ThemeStrategies;
+use Pishgaman\Pishgaman\Library\Virastyar\Virastyar;
+use Pishgaman\Pishgaman\Library\Virastyar\VirastyarInterface;
 
 class PishgamanServiceProvider extends ServiceProvider
 {
@@ -30,6 +32,9 @@ class PishgamanServiceProvider extends ServiceProvider
 
         // Bind ThemeManager to ThemeStrategies
         $this->app->bind(ThemeManager::class, ThemeStrategies::class);
+        $this->app->bind(VirastyarInterface::class , Virastyar::class);
+
+
     }
 
     public function register()

@@ -80,6 +80,7 @@ class CheckMenuAccess
                 } else {
                     $isAccessible = false;
                     $executed = false;
+
                     Session::flash('error', 'شما دسترسی لازم برای این منو را ندارید.');
                     return redirect()->route('home');
                 }

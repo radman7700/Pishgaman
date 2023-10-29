@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('parent_id')->references('id')->on('menus')->onDelete('set null');
             $table->string('order')->nullable();
             $table->string('name'); 
+            $table->string('packeage'); 
             $table->string('route')->nullable();
             $table->text('url')->nullable();
             $table->string('icon')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
         DB::table('menus')->insert([
             'order' => '1',
             'name' => 'UserInterface',
+            'packeage' => 'PishgamanLang',
             'icon' => 'fa fa-home',
             'type' => 'header',
         ]);   
@@ -38,12 +40,14 @@ return new class extends Migration
             'order' => '1',
             'parent_id' => '1',
             'name' => 'home',
+            'packeage' => 'PishgamanLang',
             'route' => 'home',
             'icon' => 'fa fa-home',
         ]);  
         DB::table('menus')->insert([
             'order' => '2',
             'name' => 'SystemManagement',
+            'packeage' => 'PishgamanLang',
             'icon' => 'fa fa-setting',
             'type' => 'header',
         ]);  
@@ -51,6 +55,7 @@ return new class extends Migration
             'order' => '1',
             'parent_id' => '3',
             'name' => 'AccessLevel',
+            'packeage' => 'PishgamanLang',
             'route' => 'PAdminAccessLevel',
             'url' => 'AccessLevel',
             'icon' => 'fa fa-lock',
@@ -59,6 +64,7 @@ return new class extends Migration
             'order' => '2',
             'parent_id' => '3',
             'name' => 'Users',
+            'packeage' => 'PishgamanLang',
             'route' => 'PAdminUsers',
             'url' => 'Users',
             'icon' => 'fa fa-users',
@@ -67,6 +73,7 @@ return new class extends Migration
             'order' => '3',
             'parent_id' => '3',
             'name' => 'Histories',
+            'packeage' => 'PishgamanLang',
             'route' => 'PAdminHistory',
             'url' => 'historylist',
             'icon' => 'fa fa-history',
