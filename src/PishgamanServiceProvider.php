@@ -27,8 +27,9 @@ class PishgamanServiceProvider extends ServiceProvider
 
         // Publish configuration (if needed)
         $this->publishes([
-            // __DIR__.'/config/PishgamanSMS.php' => config_path('PishgamanSMS.php'),
-        ]);
+            __DIR__.'/publish/Templates' => public_path('Templates'),
+            __DIR__.'/publish/media' => public_path('media'),
+        ], 'public');
 
         // Bind ThemeManager to ThemeStrategies
         $this->app->bind(ThemeManager::class, ThemeStrategies::class);

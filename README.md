@@ -31,6 +31,8 @@ $this->call([
 Pishgaman\Pishgaman\pishgamanServiceProvider::class,
 Pishgaman\Pishgaman\Providers\TemplateServiceProvider::class,
 
+###Publish
+php artisan vendor:publish --tag=public
 
 {
     "private": true,
