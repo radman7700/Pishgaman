@@ -29,6 +29,7 @@ class PishgamanServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/publish/Templates' => public_path('Templates'),
             __DIR__.'/publish/media' => public_path('media'),
+            __DIR__.'/publish/TemplatesViews' => resource_path('views/Templates'),
         ], 'public');
 
         // Bind ThemeManager to ThemeStrategies
