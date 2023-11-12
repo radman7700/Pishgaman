@@ -33,7 +33,6 @@ export const globalMixin = {
      */
     setDefaultLanguage(defaultLanguage) {
       this.defaultLanguage = defaultLanguage;
-      console.log('Default language:', defaultLanguage);
     },
 
     /**
@@ -41,7 +40,6 @@ export const globalMixin = {
      */
     printSitePath() {
       const origin = window.location.origin;
-      console.log('Site origin:', origin);
     },
     // Method to get the CSRF token from the meta tag
     getToken() {
@@ -148,7 +146,6 @@ export const globalMixin = {
           if(typeof error.response.data.errors === 'string')
           {
             text = this.translateText(error.response.data.errors);
-            console.log(text)
             if(typeof text === 'undefined')
             {
               text = error.response.data.errors

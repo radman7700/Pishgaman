@@ -3,7 +3,7 @@
 namespace Pishgaman\Pishgaman\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
-
+use Pishgaman\CyberspaceMonitoring\Database\models\TelegramMessage;
 class HomeController extends Controller
 {
     // Valid and safe actions that can be executed
@@ -46,7 +46,6 @@ class HomeController extends Controller
         if (!$this->isValidAction('home')) {
             return abort(404);
         }
-
         return view('PishgamanView::Dashboard.Home');
     }
 }
