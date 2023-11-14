@@ -6,6 +6,6 @@ return [
     'SystemManagement'     => 'مدیریت سامانه',
     'AccessLevel'  => 'سطح دسترسی',
     'Users'  => 'کاربران',
-    'Histories' => 'تاریخچه فعالیت کاربران'
-
+    'Histories' => 'تاریخچه فعالیت کاربران',
+    'departments' => 'دپارتمان'
 ];

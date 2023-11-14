@@ -6,6 +6,7 @@ use Pishgaman\Pishgaman\Http\Controllers\Web\AuthController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\welcomeController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\AccessLevelController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\UsersController;
+use Pishgaman\Pishgaman\Http\Controllers\Web\departmentsController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\SanctumController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\HistoryController;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ Route::namespace('Pishgaman\Pishgaman\Http\Controllers\Web')->middleware('web')-
         Route::get('accesslevel', [AccessLevelController::class, 'action'])->name('PAdminAccessLevel');
         Route::get('users', [UsersController::class, 'action'])->name('PAdminUsers');
         Route::get('history', [HistoryController::class, 'action'])->name('PAdminHistory');
-
+        Route::get('departments', [departmentsController::class, 'departments'])->name('PAdminDepartments');
     });
 
     // General Routes
