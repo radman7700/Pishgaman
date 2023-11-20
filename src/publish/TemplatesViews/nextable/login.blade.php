@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>ورود به ناحیه کاربری | کارا</title>
-    <meta name="description" content="ورود به ناحیه کاربری | کارا">
+    <title>ورود به ناحیه کاربری | پیشگامان</title>
+    <meta name="description" content="ورود به ناحیه کاربری | پیشگامان">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{ config('app.url') }}">
     <link rel="icon" type="image/x-icon" href="Templates/first/assets/img/favicon/favicon.ico">
@@ -31,7 +31,7 @@
           <div class="flex-row text-center mx-auto">
             <img src="Templates/first/assets/img/pages/login-light.png" alt="Auth Cover Bg color" width="520" class="img-fluid authentication-cover-img" data-app-light-img="pages/login-light.png" data-app-dark-img="pages/login-dark.png">
             <div class="mx-auto">
-              <h3>به کارا خوش آمدید</h3>
+              <h3>به پیشگامان خوش آمدید</h3>
               <p>
                 پیشگامان، تولید كننده نرم‌افزارهای مالی و مدیریتی و ارائه دهنده راهکارهای جامع نرم‌افزاری منطبق با نیاز مشتری می‌باشد. مفتخریم، سال‌ها در کنار شرکت‌ها و سازمان‌های دولتی و خصوصی گام برداشته و در طول این مسیر سعی در رفع نیازها و بهینه‌سازی فرآیندهای سازمانی ایشان داشته‌ایم.
               </p>
@@ -71,10 +71,10 @@
                     </g>
                   </svg>
                 </span>
-                <span class="app-brand-text demo h3 mb-0 fw-bold">کارا</span>
+                <span class="app-brand-text demo h3 mb-0 fw-bold">پیشگامان</span>
               </a>
             </div>
-            <h4 class="mb-3 secondary-font">به کارا خوش آمدید!</h4>
+            <h4 class="mb-3 secondary-font">به پیشگامان خوش آمدید!</h4>
             <p class="mb-4">لطفا وارد حساب خود شده و ماجراجویی را شروع کنید</p>
             @yield('content')
           </div>

@@ -38,8 +38,20 @@ return new class extends Migration
             'name' => 'Wafi_Admin',
             'description' => 'قالب مدیریتی',
             'type' => 'admin',
-            'active' => 1,
+            'active' => 0,
         ]); 
+        DB::table('templates')->insert([
+            'name' => 'first',
+            'description' => 'قالب مدیریتی فرست',
+            'type' => 'admin',
+            'active' => 0,
+        ]);
+        DB::table('templates')->insert([
+            'name' => 'nextable',
+            'description' => 'قالب مدیریتی nextable',
+            'type' => 'admin',
+            'active' => 1,
+        ]);                
         DB::table('templates')->insert([
             'name' => 'UnderConstruction',
             'description' => 'قالب در دست ساخت',
