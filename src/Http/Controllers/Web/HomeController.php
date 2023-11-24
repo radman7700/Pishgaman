@@ -9,7 +9,15 @@ class HomeController extends Controller
     // Valid and safe actions that can be executed
     private $validActions = [
         'home',
-        // 'other_action',  // Add other safe actions here
+        'logout',
+        'profile'
+    ];
+
+    protected $validMethods = [
+        'GET' => ['home','logout','profile'], 
+        'POST' => [], 
+        'PUT' => [],
+        'DELETE' => []
     ];
 
     /**
@@ -19,22 +27,26 @@ class HomeController extends Controller
     {
         if ($request->has('action')) {
             $functionName = $request->action;
-            if ($this->isValidAction($functionName)) {
+            $method = $request->method();
+            if ($this->isValidAction($functionName, $method)) {
                 return $this->$functionName($request);
             }
-
+    
             return abort(404);
         } else {
             return $this->home($request);
         }
+
+        return abort(404);
     }
+
 
     /**
      * Validate the requested action name.
      */
-    private function isValidAction($functionName)
+    private function isValidAction($functionName, $method)
     {
-        return in_array($functionName, $this->validActions);
+        return in_array($functionName, $this->validActions) && in_array($functionName, $this->validMethods[$method]);
     }
 
     /**
@@ -42,10 +54,31 @@ class HomeController extends Controller
      */
     public function home(Request $request)
     {
-        // Execute the "home" method only if it is a valid action.
-        if (!$this->isValidAction('home')) {
+        if (!$this->isValidAction('home', 'GET')) {
             return abort(404);
-        }
+        } 
+
         return view('PishgamanView::Dashboard.Home');
+    }
+
+    public function logout(Request $request)
+    {
+        if (!$this->isValidAction('home', 'GET')) {
+            return abort(404);
+        } 
+
+        auth()->logout();
+        return redirect('/');
+    }
+
+    public function profile(Request $request)
+    {
+        if (!$this->isValidAction('profile', 'GET')) {
+            return abort(404);
+        } 
+
+        $mix = ['packages/pishgaman/pishgaman/src/resources/vue/Users/template/ChangeTemplate/profile.js'];
+
+        return view('PishgamanView::Users.Profile',['mix'=>$mix]);
     }
 }

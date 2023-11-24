@@ -65,6 +65,10 @@ export const globalMixin = {
       return baseElement.href;
     },
 
+    getSafe(fn, defaultVal) {
+      try {return fn();}catch (e) {return defaultVal;}
+    },    
+
     /**
      * Show a Swal alert with custom settings.
      * @param {string} titleKey - The translation key for the title of the alert.
