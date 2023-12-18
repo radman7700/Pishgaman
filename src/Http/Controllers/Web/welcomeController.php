@@ -26,7 +26,7 @@ class welcomeController extends Controller
     {
         $otherStrategy = new OtherThemeStrategy();
         $themeManager = new ThemeManager($otherStrategy);
-        $theme = $themeManager->getTheme('user');       
+        $theme = $themeManager->getTheme('user');   
         return view($theme);
     }
 }
