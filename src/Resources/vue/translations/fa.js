@@ -63,7 +63,8 @@ export const fa = {
   channelHome:'داشبورد کانال تلگرام',
   WebService:'وب سرویس',
   PayeshTelegramUsersList:'فهرست کاربران تلگرام',
-
+  clony:'کلونی',
+  cogs:'تنظیمات',
   PAdminHistory_historylist:'فعالیت کاربران نمایش داده شده است.',
   PAdminUsers_Users: 'فهرست کاربران سامانه نمایش داده شده است.',
   PAdminAccessLevel_AccessLevel: 'سطح دسترسی سامانه نمایش داده شده است.',
