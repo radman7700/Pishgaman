@@ -19,7 +19,11 @@
                     </div>
                     <div>
                         <p class="m-b-5">
-                            <a :href="getAppUrl()+'media/download/'+item.file_path" target="_blank">{{ checkString(item.name) }} </a>
+                            <a :href="getAppUrl()+'media/download/'+item.file_path" target="_blank" v-if="item.status == 100">{{ checkString(item.name) }} </a>
+                            <b v-else>
+                                <span class="spinner-grow spinner-grow-sm m-r-5" role="status" aria-hidden="true"></span>
+                                در حال پردازش ...
+                            </b>                            
                         </p>
                         <small class="text-muted">
                             <i class="fa fa-clock-o m-r-5"></i> {{convertDateToPersian(item.created_at)}} 
@@ -58,11 +62,11 @@ export default {
         },        
         checkString(yourString) {
             if (yourString.indexOf('telegram_users') !== -1) {
-                return 'فایل سوژه: ' + yourString.replace("telegram_users_","");
+                return yourString.replace("telegram_users_","");
             } else if (yourString.indexOf('telegram_Group_message') !== -1) {
-                return 'فایل پیام‌ها: ' + yourString.replace("telegram_Group_message_","");
+                return yourString.replace("telegram_Group_message_","");
             } else if (yourString.indexOf('telegram_group_users') !== -1) {
-                return 'فایل پیام‌ها: ' + yourString.replace("telegram_group_users_","");
+                return yourString.replace("telegram_group_users_","");
             }else {
                 return yourString;
             }

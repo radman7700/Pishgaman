@@ -63,11 +63,12 @@ export const fa = {
   channelHome:'داشبورد کانال تلگرام',
   WebService:'وب سرویس',
   PayeshTelegramUsersList:'فهرست کاربران تلگرام',
-
+  websiteMessagesList:'اخبار وب‌سایت‌ها',
   PAdminHistory_historylist:'فعالیت کاربران نمایش داده شده است.',
   PAdminUsers_Users: 'فهرست کاربران سامانه نمایش داده شده است.',
   PAdminAccessLevel_AccessLevel: 'سطح دسترسی سامانه نمایش داده شده است.',
-
+  PayeshWebsite:'وب‌سایت',
+  PayeshSession:'نشست‌ها',
   PAdminUsersApi_getUsers:'فهرست کاربران سامانه برای نمایش به صفحه ارسال شده است.',
   PAdminUsersApi_createdUser:'کاربر جدید ایجاد شد.',
   PAdminUsersApi_updateUser:'یک کاربر ویرایش شد.',

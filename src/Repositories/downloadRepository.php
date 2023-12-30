@@ -15,7 +15,7 @@ class downloadRepository
 
     public function Get(array $options, $perPage = 10)
     {
-        $query = User::query();
+        $query = Download::query();
     
         // اضافه کردن 'orderby' اختیاری
         if (isset($options['sortings']) && is_array($options['sortings'])) {
