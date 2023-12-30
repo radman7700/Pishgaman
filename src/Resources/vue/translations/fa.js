@@ -64,6 +64,8 @@ export const fa = {
   WebService:'وب سرویس',
   PayeshTelegramUsersList:'فهرست کاربران تلگرام',
   websiteMessagesList:'اخبار وب‌سایت‌ها',
+  clony:'کلونی',
+  cogs:'تنظیمات',
   PAdminHistory_historylist:'فعالیت کاربران نمایش داده شده است.',
   PAdminUsers_Users: 'فهرست کاربران سامانه نمایش داده شده است.',
   PAdminAccessLevel_AccessLevel: 'سطح دسترسی سامانه نمایش داده شده است.',
