@@ -19,7 +19,7 @@
                     </div>
                     <div>
                         <p class="m-b-5">
-                            <a :href="getAppUrl()+'media/download/'+item.file_path" target="_blank" v-if="item.status == 100">{{ checkString(item.name) }} </a>
+                            <a :href="getAppUrl()+'download?id='+item.id" target="_blank" v-if="item.status == 100">{{ checkString(item.name) }} </a>
                             <b v-else>
                                 <span class="spinner-grow spinner-grow-sm m-r-5" role="status" aria-hidden="true"></span>
                                 در حال پردازش ...
