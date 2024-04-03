@@ -54,7 +54,14 @@ export const fa = {
   AccessLevel:'سطح دسترسی',
   Users:'فهرست کاربران',
   Histories:'تاریخچه فعالیت',
-  
+  WorkList:'مدیریت کار',
+  wintas:'کارکرد',
+  DailyWork:'ورود و خروج',
+  Intervals:'Intervals',
+  MonthWork:'کارکرد ماهانه',
+  Morbrg:'برگه مرخصی',
+  departments:'واحدها',
+  userTask:'وظایف من',
   PAdminHistory_historylist:'فعالیت کاربران نمایش داده شده است.',
   PAdminUsers_Users: 'فهرست کاربران سامانه نمایش داده شده است.',
   PAdminAccessLevel_AccessLevel: 'سطح دسترسی سامانه نمایش داده شده است.',
@@ -68,4 +75,7 @@ export const fa = {
   PAdminUsersApi_changePassword:'رمز ورود به سامانه کاربر ویرایش شد',
   PAdminUsersApi_uploadUserProfile:'تصویر پروفایل کاربر ویرایش شد',
   PAdminUsersApi_deleteUserProfile:'تصویر پروفایل کاربر حذف شد.',
+
+  admin:'مدیر',
+  
 };

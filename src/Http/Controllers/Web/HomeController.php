@@ -9,6 +9,8 @@ class HomeController extends Controller
     // Valid and safe actions that can be executed
     private $validActions = [
         'home',
+        'logout',
+        'profile'
         // 'other_action',  // Add other safe actions here
     ];
 
@@ -46,6 +48,30 @@ class HomeController extends Controller
         if (!$this->isValidAction('home')) {
             return abort(404);
         }
-        return view('PishgamanView::Dashboard.Home');
+
+        $mix = ['packages/pishgaman/WorkReport/src/resources/vue/HomeApp.js'];
+
+        return view('PishgamanView::Dashboard.Home',['mix'=>$mix ]);
     }
+
+    public function logout(Request $request)
+    {
+        if (!$this->isValidAction('logout', 'GET')) {
+            return abort(404);
+        } 
+
+        auth()->logout();
+        return redirect('/');
+    }
+
+    public function profile(Request $request)
+    {
+        if (!$this->isValidAction('profile', 'GET')) {
+            return abort(404);
+        } 
+
+        $mix = ['packages/pishgaman/pishgaman/src/resources/vue/Users/template/ChangeTemplate/profile.js'];
+
+        return view('PishgamanView::Users.Profile',['mix'=>$mix]);
+    }    
 }

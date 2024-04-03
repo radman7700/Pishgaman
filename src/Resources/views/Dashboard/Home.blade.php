@@ -1,5 +1,5 @@
 @extends($Template)
 
 @section('content')
-test
+    <div id="WorkReportHomeApp"></div>
 @endsection

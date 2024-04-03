@@ -14,19 +14,21 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
+            $table->string('name')->nullable()->comment('Departments name');
+            $table->unsignedInteger('pid')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 
-        DB::table('menus')->insert([
-            'order' => '2',
-            'parent_id' => '3',
-            'name' => 'departments',
-            'packeage' => 'PishgamanLang',
-            'route' => 'PAdminDepartments',
-            'url' => '',
-            'icon' => 'fa fa-building-o',
-        ]);        
+        // DB::table('menus')->insert([
+        //     'order' => '2',
+        //     'parent_id' => '3',
+        //     'name' => 'departments',
+        //     'packeage' => 'PishgamanLang',
+        //     'route' => 'PAdminDepartments',
+        //     'url' => '',
+        //     'icon' => 'fa fa-building-o',
+        // ]);        
     }
 
     /**

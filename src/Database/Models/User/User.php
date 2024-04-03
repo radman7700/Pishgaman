@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Pishgaman\Pishgaman\Database\Models\AccessLevel\UserAccessLevel;
 use Pishgaman\Pishgaman\Database\Models\AccessLevel\UserAccessMenu;
+use Pishgaman\Pishgaman\Database\Models\Department\Department;
+use Pishgaman\Pishgaman\Database\Models\Department\DepartmentUser;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -85,4 +87,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(UserAccessLevel::class, 'user_access_menus', 'user_id', 'access_level_id');
     }    
+
+    public function department_user()
+    {
+        return $this->hasMany(DepartmentUser::class, 'user_id');
+    } 
 }

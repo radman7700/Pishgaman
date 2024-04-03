@@ -2,7 +2,7 @@
     <div class="row justify-content-md-center">
         <div class="card col-sm-12">
             <div class="card-body text-left">
-                <div class="form-row">
+                <div class="form-row row">
                     <div class="col-md-4 mb-3">   
                         <input type="text" class="form-control" id="searchQuery" v-model="searchQuery" placeholder="جستجو " autocomplete="off">  
                     </div>
@@ -24,41 +24,41 @@
                 </div>          
             </div>            
         </div>
-        <div class="col-md-12">
-        <table class="table table-bordered mt-4">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">تصویر کاربر</th>
-                <th scope="col">کاربر</th>
-                <th scope="col">تاریخ</th>
-                <th scope="col">برنامه</th>
-                <th scope="col">IP</th>
-                <th scope="col">وضعیت اجرا</th>
-                <th scope="col">وضعیت دسترسی</th>
-            </tr>
-            </thead>
-            <tbody v-for="(history, index) in histories">
+        <div class="card col-md-12" style="margin-top: 12px;padding: 12px;">
+            <table class="table table-bordered mt-4">
+                <thead class="thead-dark">
                 <tr>
-                    <td>{{(index + itemsPerPage * (pagination.current_page - 1)) + 1}}</td>
-                    <td>
-                        <img :src="userImage(history.user.id )" onerror="this.src='http://localhost/example-app/public/media/images/Users/Profile/noImage.png'" alt="تصویر پروفایل کاربر" width="115" height="115">
-                    </td>
-                    <td><b>{{ history.user.username  }}</b><br>{{ history.user.name }} {{ history.user.last_name }}<br>{{ history.user.email  }}</td>
-                    <td>{{convertDate(history.created_at,'jYYYY/jM/jD HH:mm:ss')}}</td>
-                    <td>{{translateText(history.message.split('_')[0])}}</td>
-                    <td>{{ history.ip }}</td>
-                    <td>{{ history.executed ? 'بله' : 'خیر' }}</td>
-                    <td>{{ history.is_accessible ? 'بله' : 'خیر' }}</td>
+                    <th scope="col">#</th>
+                    <!-- <th scope="col">تصویر کاربر</th> -->
+                    <th scope="col">کاربر</th>
+                    <th scope="col">تاریخ</th>
+                    <th scope="col">برنامه</th>
+                    <th scope="col">IP</th>
+                    <th scope="col">وضعیت اجرا</th>
+                    <th scope="col">وضعیت دسترسی</th>
                 </tr>
-                <tr>
-                    <td colspan="8">شرح: {{translateText(history.message)}} <p v-html="history.description"></p></td>
-                </tr>                
-            </tbody>
-        </table>
+                </thead>
+                <tbody v-for="(history, index) in histories">
+                    <tr>
+                        <td>{{(index + itemsPerPage * (pagination.current_page - 1)) + 1}}</td>
+                        <!-- <td>
+                            <img :src="userImage(history.user.id )" onerror="this.src='http://localhost/example-app/public/media/images/Users/Profile/noImage.png'" alt="تصویر پروفایل کاربر" width="115" height="115">
+                        </td> -->
+                        <td><b>{{ history.user.username  }}</b><br>{{ history.user.name }} {{ history.user.last_name }}<br>{{ history.user.email  }}</td>
+                        <td>{{convertDate(history.created_at,'jYYYY/jM/jD HH:mm:ss')}}</td>
+                        <td>{{translateText(history.message.split('_')[0])}}</td>
+                        <td>{{ history.ip }}</td>
+                        <td>{{ history.executed ? 'بله' : 'خیر' }}</td>
+                        <td>{{ history.is_accessible ? 'بله' : 'خیر' }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8">شرح: {{translateText(history.message)}} <p v-html="history.description"></p></td>
+                    </tr>                
+                </tbody>
+            </table>
         </div>
-        <div class="col-sm-12">
-            <nav aria-label="Page navigation" v-if="pagination.last_page != 1">
+        <div class="card col-sm-12" v-if="pagination.last_page != 1" style="margin-top: 12px;padding: 12px;">
+            <nav aria-label="Page navigation" >
                 <ul class="pagination">
                     <li v-if="pagination.current_page > 1">
                         <a href="#" aria-label="Previous" class="page-link" @click.prevent="changePage(pagination.current_page - 1,orderbyValue)">
