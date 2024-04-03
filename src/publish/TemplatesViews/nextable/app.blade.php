@@ -22,6 +22,8 @@
 
 	<!-- App styles -->
 	<link rel="stylesheet" href="{{url('Templates/nextable/default/assets/css/app.css')}}" type="text/css">
+	<link rel="stylesheet" href="{{url('Templates/Wafi_Admin/vendor/jqcloud/jqcloud.css')}}" />
+
 </head>
 
 <body>
@@ -36,18 +38,19 @@
 	<div class="sidebar" id="userProfile">
 		<div class="text-center p-4">
 			<figure class="avatar avatar-state-success avatar-lg mb-4">
-				<img src="{{url('Templates/nextable/default/assets/media/image/avatar.jpg')}}" class="rounded-circle" alt="image">
+				<img src="{{url('media/images/Users/Profile/noImage.png')}}" class="rounded-circle" alt="image">
 			</figure>
-			<h4 class="text-primary m-b-10">جان اسنو</h4>
+			<h4 class="text-primary m-b-10">{{$currentUser->username ?? '???'}}</h4>
 			<p class="text-muted d-flex align-items-center justify-content-center line-height-0 mb-0">
-				رهبر تیم <a href="#" class="ml-2" data-toggle="tooltip" title="تنظیمات" data-sidebar-open="#settings"> <i class="ti-settings"></i> </a>
+				{{$currentUser->name ?? ''}} {{$currentUser->last_name ?? ''}} 
+				{{-- <a href="#" class="ml-2" data-toggle="tooltip" title="تنظیمات" data-sidebar-open="#settings"> <i class="ti-settings"></i> </a> --}}
 			</p>
 		</div>
 		<hr class="m-0">
 		<div class="p-4">
 			<div class="mb-4">
 				<h6 class="font-size-13 mb-3">
-					تکمیل پروفایل
+					کلیک‌های انجام شده
 					<span class="float-right primary-font">%25</span>
 				</h6>
 				<div class="progress m-b-20" style="height: 5px;">
@@ -56,7 +59,7 @@
 			</div>
 			<div class="mb-4">
 				<h6 class="font-size-13 mb-3">
-					ذخیره سازی
+					دانلود‌های انجام شده
 					<span class="float-right primary-font">%77</span>
 				</h6>
 				<div class="progress m-b-20" style="height: 5px;">
@@ -65,7 +68,7 @@
 			</div>
 			<div class="mb-4">
 				<h6 class="font-size-13 mb-3 ">
-					وظایف انجام شده
+					مدت اعتبار
 					<span class="float-right primary-font">%40</span>
 				</h6>
 				<div class="progress m-b-20" style="height: 5px;">
@@ -74,43 +77,11 @@
 			</div>
 			<div class="mb-4">
 				<h6 class="font-size-13 mb-3 pt-2">درباره</h6>
-				<p class="text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک</p>
+				<p class="text-muted">
+					پیشگامان، امکانات متنوعی را برای پایش و تحلیل محتوای فضای مجازی در اختیارتان قرار می‌دهد و به شما کمک می‌کند که تا از دیدگاه افکارعمومی آگاه باشید، جهت‌گیری رسانه‌ها و جریان‌های خبری را بشناسید.
+				</p>
 			</div>
-			<div class="mb-4">
-				<h6 class="font-size-13 mb-3">شهر</h6>
-				<p class="text-muted">تبریز / ایران</p>
-			</div>
-			<div class="mb-4">
-				<h6 class="font-size-13 mb-3">شبکه های اجتماعی</h6>
-				<ul class="list-inline mb-4">
-					<li class="list-inline-item">
-						<a href="#" class="btn btn-sm btn-floating btn-facebook">
-							<i class="fa fa-facebook"></i>
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="#" class="btn btn-sm btn-floating btn-twitter">
-							<i class="fa fa-twitter"></i>
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="#" class="btn btn-sm btn-floating btn-dribbble">
-							<i class="fa fa-dribbble"></i>
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="#" class="btn btn-sm btn-floating btn-whatsapp">
-							<i class="fa fa-whatsapp"></i>
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="#" class="btn btn-sm btn-floating btn-linkedin">
-							<i class="fa fa-linkedin"></i>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="mb-4">
+			{{-- <div class="mb-4">
 				<h6 class="font-size-13 mb-3">تنظیمات</h6>
 				<div class="form-group">
 					<div class="form-item custom-control custom-switch">
@@ -124,13 +95,13 @@
 						<label class="custom-control-label" for="customSwitch12">بیصدا کردن</label>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 	<!-- end::sidebar user profile -->
 
 	<!-- begin::sidebar settings -->
-	<div class="sidebar" id="settings">
+	{{-- <div class="sidebar" id="settings">
 		<header>
 			<i class="ti-settings"></i> تنظیمات
 		</header>
@@ -214,7 +185,7 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 	<!-- end::sidebar settings -->
 
 	<!-- begin::navigation -->
@@ -234,12 +205,12 @@
 			</ul>
 			<ul>
 				<li data-toggle="tooltip" title="ویرایش پروفایل">
-					<a href="#" class="go-to-page">
+					<a href="{{route('home')}}?action=profile" class="go-to-page">
 						<i class="icon ti-settings"></i>
 					</a>
 				</li>
 				<li data-toggle="tooltip" title="خروج">
-					<a href="login.html" class="go-to-page">
+					<a href="{{route('home')}}?action=logout" class="go-to-page">
 						<i class="icon ti-power-off"></i>
 					</a>
 				</li>
@@ -545,7 +516,7 @@
 						<a href="#" class="nav-link bg-none" data-sidebar-open="#userProfile">
 							<div>
 								<figure class="avatar avatar-state-success avatar-sm">
-									<img src="{{url('Templates/nextable/default/assets/media/image/avatar.jpg')}}" class="rounded-circle" alt="image">
+									<img src="{{url('media/images/Users/Profile/noImage.png')}}" class="rounded-circle" alt="image">
 								</figure>
 							</div>
 						</a>
@@ -580,21 +551,20 @@
 
 	<!-- begin::main content -->
 	<main class="main-content">
-
-		<div class="row">
             @if(($card ?? '' )!= '')
-			<div class="col-md-12">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">عنوان محتوا</h5>
-                        @yield('content')                    
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">عنوان محتوا</h5>
+							@yield('content')                    
+						</div>
 					</div>
 				</div>
 			</div>
             @else
                 @yield('content')                    
             @endif
-		</div>
 
 	</main>
 	<!-- end::main content -->
@@ -605,9 +575,16 @@
 
 	<!-- begin::custom scripts -->
 	<script src="{{url('Templates/nextable/default/assets/js/app.js')}}"></script>
+    <script src="{{url('Templates/Wafi_Admin/vendor/jqcloud/jqcloud-1.0.4.min.js')}}"></script>
+
 	<!-- end::custom scripts -->
     @if(($mix ?? '') != '')
         @foreach ($mix as $item)
+			@php 
+				$changeTemplate = str_replace('Template.','',$Template);
+				$changeTemplate = str_replace('.app','',$changeTemplate);
+				$item = str_replace('ChangeTemplate',$changeTemplate,$item) 
+			@endphp
             @vite($item)
         @endforeach
     @endif

@@ -7,5 +7,6 @@ return [
     'AccessLevel'  => 'سطح دسترسی',
     'Users'  => 'کاربران',
     'Histories' => 'تاریخچه فعالیت کاربران',
-    'departments' => 'دپارتمان'
+    'departments' => 'دپارتمان',
+    'cogs' => 'تنظیمات'
 ];

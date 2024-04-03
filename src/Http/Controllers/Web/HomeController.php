@@ -14,6 +14,13 @@ class HomeController extends Controller
         // 'other_action',  // Add other safe actions here
     ];
 
+    protected $validMethods = [
+        'GET' => ['home','logout','profile'], 
+        'POST' => [], 
+        'PUT' => [],
+        'DELETE' => []
+    ];
+
     /**
      * Controller function to handle actions.
      */
@@ -21,22 +28,26 @@ class HomeController extends Controller
     {
         if ($request->has('action')) {
             $functionName = $request->action;
-            if ($this->isValidAction($functionName)) {
+            $method = $request->method();
+            if ($this->isValidAction($functionName, $method)) {
                 return $this->$functionName($request);
             }
-
+    
             return abort(404);
         } else {
             return $this->home($request);
         }
+
+        return abort(404);
     }
+
 
     /**
      * Validate the requested action name.
      */
-    private function isValidAction($functionName)
+    private function isValidAction($functionName, $method)
     {
-        return in_array($functionName, $this->validActions);
+        return in_array($functionName, $this->validActions) && in_array($functionName, $this->validMethods[$method]);
     }
 
     /**
@@ -44,8 +55,7 @@ class HomeController extends Controller
      */
     public function home(Request $request)
     {
-        // Execute the "home" method only if it is a valid action.
-        if (!$this->isValidAction('home')) {
+        if (!$this->isValidAction('home', 'GET')) {
             return abort(404);
         }
 

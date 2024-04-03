@@ -28,5 +28,7 @@ class TemplateServiceProvider extends ServiceProvider
         $themeManager = new ThemeManager($otherStrategy);
         $template = $themeManager->getTheme('Admin');
         view()->share('Template', $template);
+        $UserTemplate = $themeManager->getTheme('user');
+        view()->share('UserTemplate', $UserTemplate);
     }
 }
