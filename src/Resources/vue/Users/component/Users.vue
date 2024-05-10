@@ -2,7 +2,7 @@
   <div class="row justify-content-md-center">
     <div class="card col-sm-12">
       <div class="card-body text-left">
-        <div class="form-row">
+        <div class="form-row row">
           <div class="col-md-2 mb-2">      
             <button class="btn btn-primary" data-toggle="modal" data-target="#createdUser"><i class="fa fa-plus"></i> ایجاد کاربر جدید</button>
           </div>
@@ -27,13 +27,13 @@
         </div>          
       </div>
     </div>
-    <div class="col-md-12">
+    <div class="card col-sm-12" style="margin-top: 12px;padding: 12px;">
       <table class="table table-bordered mt-4">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">شناسه</th>
-            <th scope="col">تصویر</th>
+            <!-- <th scope="col">تصویر</th> -->
             <th scope="col">کاربر</th>
             <th scope="col">عملیات</th>
           </tr>
@@ -42,26 +42,26 @@
           <tr v-for="(user, index) in users" :key="index" :style="user.deleted_at ? 'background:antiquewhite' : ''">
             <td class="align-middle">{{(index + itemsPerPage * (pagination.current_page - 1)) + 1}}</td>
             <td >{{ user.id }}</td>
-            <td>
+            <!-- <td>
               <img :src="userImage(user.id )" onerror="this.src='http://localhost/example-app/public/media/images/Users/Profile/noImage.png'" alt="تصویر پروفایل کاربر" width="115" height="115">
-            </td>
+            </td> -->
             <td><b>{{ user.username  }}</b><br>{{ user.name }} {{ user.last_name }}<br>{{ user.email  }}</td>
             <td v-if="!user.deleted_at">
-              <button class="btn btn-success btn-icon" data-toggle="modal" data-target="#editUser" @click="showEditModal(user);current_user_id = user.id" title="ویرایش">
+              <button class="btn btn-success btn-icon"  data-bs-toggle="modal" data-toggle="modal" data-bs-target="#editUser" data-target="#editUser"  @click="showEditModal(user);current_user_id = user.id" title="ویرایش">
                 <i class="fa fa-edit"></i>
               </button>            
               <button class="btn btn-danger btn-icon" @click="softDeleteUser(user.id)" title="حذف">
                 <i class="fa fa-trash"></i>
               </button>
-              <button class="btn btn-info btn-icon" @click="showEditPasswordModal(user.id)" data-toggle="modal" data-target="#myModal">
+              <button class="btn btn-info btn-icon" @click="showEditPasswordModal(user.id)" data-bs-toggle="modal" data-toggle="modal" data-bs-target="#myModal" data-target="#myModal">
                 <i class="fa fa-key"></i>
               </button>  
-              <button class="btn btn-warning btn-icon" data-toggle="modal" data-target="#setAccessLevel" @click="getUserAccessLevel(user.id);currentUserId = user.id;">
+              <button class="btn btn-warning btn-icon" data-bs-toggle="modal" data-toggle="modal" data-bs-target="#setAccessLevel" data-target="#setAccessLevel" @click="getUserAccessLevel(user.id);currentUserId = user.id;">
                 <i class="fa fa-lock"></i>
               </button>   
-              <button class="btn btn-secondary btn-icon" data-toggle="modal" data-target="#setProfileImage" @click="currentUserId = user.id;">
+              <!-- <button class="btn btn-secondary btn-icon" data-toggle="modal" data-target="#setProfileImage" @click="currentUserId = user.id;">
                 <i class="fa fa-camera"></i>
-              </button>                                        
+              </button>                                         -->
             </td>
             <td v-else>
               <button class="btn btn-primary btn-icon" @click="restoreUser(user.id)" title="بازیابی">
@@ -75,26 +75,26 @@
         </tbody>
       </table>
     </div>
-    <div class="col-sm-12">
-        <nav aria-label="Page navigation" v-if="pagination.last_page != 1">
-            <ul class="pagination">
-                <li v-if="pagination.current_page > 1">
-                    <a href="#" aria-label="Previous" class="page-link" @click.prevent="changePage(pagination.current_page - 1,orderbyValue)">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li v-for="page in pagesNumber"
-                    :class="[ page == isActived ? 'page-item active' : '']">
-                    <a href="#" @click.prevent="changePage(page,orderbyValue)" class="page-link">{{ page }}</a>
-                </li>
-                <li v-if="pagination.current_page < pagination.last_page">
-                    <a href="#" aria-label="Next" class="page-link"
-                        @click.prevent="changePage(pagination.current_page + 1,orderbyValue)">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <div class="card col-sm-12" style="margin-top: 12px;padding: 12px;" v-if="pagination.last_page != 1">
+      <nav aria-label="Page navigation">
+          <ul class="pagination">
+              <li v-if="pagination.current_page > 1">
+                  <a href="#" aria-label="Previous" class="page-link" @click.prevent="changePage(pagination.current_page - 1,orderbyValue)">
+                      <span aria-hidden="true">&laquo;</span>
+                  </a>
+              </li>
+              <li v-for="page in pagesNumber"
+                  :class="[ page == isActived ? 'page-item active' : '']">
+                  <a href="#" @click.prevent="changePage(page,orderbyValue)" class="page-link">{{ page }}</a>
+              </li>
+              <li v-if="pagination.current_page < pagination.last_page">
+                  <a href="#" aria-label="Next" class="page-link"
+                      @click.prevent="changePage(pagination.current_page + 1,orderbyValue)">
+                      <span aria-hidden="true">&raquo;</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
     </div>
     <div id="createdUser" class="modal fade" role="dialog">
       <div class="modal-dialog">

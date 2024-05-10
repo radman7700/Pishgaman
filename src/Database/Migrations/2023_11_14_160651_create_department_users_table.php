@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
             $table->unsignedBigInteger('department_id')->nullable();
-            $table->foreign('department_id')->references('id')->on('users')->onDelete('cascade');             
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');             
             $table->text('job_position')->nullable();
             $table->timestamps();
         });

@@ -11,6 +11,7 @@ class HomeController extends Controller
         'home',
         'logout',
         'profile'
+        // 'other_action',  // Add other safe actions here
     ];
 
     protected $validMethods = [
@@ -56,16 +57,19 @@ class HomeController extends Controller
     {
         if (!$this->isValidAction('home', 'GET')) {
             return abort(404);
-        } 
+        }
 
         $mix = ['packages/pishgaman/CyberspaceMonitoring/src/resources/vue/MonitoringApp.js'];
 
         return view('PishgamanView::Dashboard.Home',['mix'=>$mix]);
+        $mix = ['packages/pishgaman/WorkReport/src/resources/vue/HomeApp.js'];
+
+        return view('PishgamanView::Dashboard.Home',['mix'=>$mix ]);
     }
 
     public function logout(Request $request)
     {
-        if (!$this->isValidAction('home', 'GET')) {
+        if (!$this->isValidAction('logout', 'GET')) {
             return abort(404);
         } 
 
@@ -82,5 +86,5 @@ class HomeController extends Controller
         $mix = ['packages/pishgaman/pishgaman/src/resources/vue/Users/template/ChangeTemplate/profile.js'];
 
         return view('PishgamanView::Users.Profile',['mix'=>$mix]);
-    }
+    }    
 }

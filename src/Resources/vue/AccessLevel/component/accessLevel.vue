@@ -2,7 +2,7 @@
   <div class="row justify-content-md-center">
     <div class="card col-sm-12">
       <div class="card-body text-left">
-        <div class="form-row">
+        <div class="form-row row">
           <div class="col-md-2 mb-2">      
             <button class="btn btn-primary" @click="showModal"><i class="fa fa-plus"></i> ایجاد سطح دسترسی</button>
           </div>
@@ -27,7 +27,8 @@
         </div>          
       </div>
     </div>
-    <div class="col-md-12">
+
+    <div class="card col-sm-12" style="margin-top: 12px;padding: 12px;">
       <table class="table table-bordered mt-4">
         <thead class="thead-dark">
           <tr>
@@ -47,7 +48,7 @@
               <button class="btn btn-danger btn-icon" @click="deletePermission(permission.id)" title="حذف">
                 <i class="fa fa-trash"></i>
               </button>
-              <button class="btn btn-info btn-icon" @click="getMenus(permission.id)"  data-toggle="modal" data-target="#myModal">
+              <button class="btn btn-info btn-icon" @click="getMenus(permission.id)" data-bs-toggle="modal" data-toggle="modal" data-bs-target="#myModal" data-target="#myModal">
                 <i class="fa fa-lock"></i>
               </button>              
             </td>
@@ -55,7 +56,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-sm-12">
+    <div class="card col-sm-12" style="margin-top: 12px;padding: 12px;">
         <nav aria-label="Page navigation" v-if="pagination.last_page != 1">
             <ul class="pagination">
                 <li v-if="pagination.current_page > 1">
@@ -77,16 +78,16 @@
         </nav>
     </div>
     <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">فهرست منوها</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="row justify-content-md-center">
+            <div class="row">
               <div class="col-sm-4" v-for="item in menus">
                 <div class="form-check form-switch text-left">
                   <input class="form-check-input" type="checkbox" :id="'flexSwitchCheckDefault_'+item.id" :checked="checked(item.id)" @change="checkboxMenuChanged(item.id)">
@@ -94,9 +95,6 @@
                 </div>                               
               </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
