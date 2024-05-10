@@ -92,4 +92,11 @@ export const fa = {
   PAdminUsersApi_uploadUserProfile:'تصویر پروفایل کاربر ویرایش شد',
   PAdminUsersApi_deleteUserProfile:'تصویر پروفایل کاربر حذف شد.',
   admin:'مدیر',
+  taskDone:'انجام شد',
+  InProgress:'در جریان',
+  int:'عددی',
+  select:'انتخابی',
+  text:'متنی',
+  notUsed:'بدون خروجی',
+
 };
