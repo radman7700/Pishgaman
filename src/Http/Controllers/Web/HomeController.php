@@ -59,6 +59,9 @@ class HomeController extends Controller
             return abort(404);
         }
 
+        $mix = ['packages/pishgaman/CyberspaceMonitoring/src/resources/vue/MonitoringApp.js'];
+
+        return view('PishgamanView::Dashboard.Home',['mix'=>$mix]);
         $mix = ['packages/pishgaman/WorkReport/src/resources/vue/HomeApp.js'];
 
         return view('PishgamanView::Dashboard.Home',['mix'=>$mix ]);

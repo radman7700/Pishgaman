@@ -1,5 +1,5 @@
 @extends($Template)
 
 @section('content')
-<div id="MonitoringApp"></div>
+    <div id="messagesApp"></div>
 @endsection
