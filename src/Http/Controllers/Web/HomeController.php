@@ -58,7 +58,9 @@ class HomeController extends Controller
             return abort(404);
         } 
 
-        return view('PishgamanView::Dashboard.Home');
+        $mix = ['packages/pishgaman/CyberspaceMonitoring/src/resources/vue/MonitoringApp.js'];
+
+        return view('PishgamanView::Dashboard.Home',['mix'=>$mix]);
     }
 
     public function logout(Request $request)

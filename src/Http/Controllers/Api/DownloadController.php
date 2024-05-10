@@ -66,8 +66,8 @@ class DownloadController extends Controller
             'sortings' => [
                 ['column' => 'created_at', 'order' => 'desc'],
             ],
-            'get' => true,
-            'take'=>7
+            'get' => false,
+            'take'=>4
         ];
         $downloadList = $this->downloadRepository->Get($options);
         return response()->json(['downloadList'=>$downloadList]);        

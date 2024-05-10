@@ -10,6 +10,7 @@ use Pishgaman\Pishgaman\Http\Controllers\Web\departmentsController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\SanctumController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\HistoryController;
 use Pishgaman\Pishgaman\Http\Controllers\Web\DownloadController;
+use Pishgaman\BackUpDB\Http\Controllers\BackUpController;
 use Illuminate\Http\Request;
 
 Route::namespace('Pishgaman\Pishgaman\Http\Controllers\Web')->middleware('web')->group(function () {
@@ -20,6 +21,8 @@ Route::namespace('Pishgaman\Pishgaman\Http\Controllers\Web')->middleware('web')-
         Route::get('users', [UsersController::class, 'action'])->name('PAdminUsers');
         Route::get('history', [HistoryController::class, 'action'])->name('PAdminHistory');
         Route::get('departments', [departmentsController::class, 'departments'])->name('PAdminDepartments');
+        Route::get('messages', [messagesController::class, 'messages'])->name('PMessages');
+        Route::get('backup', [departmentsController::class, 'action'])->name('BackUpAction');
     });
 
     // General Routes
