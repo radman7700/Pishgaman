@@ -29,7 +29,7 @@ Route::namespace('Pishgaman\Pishgaman\Http\Controllers\Web')->middleware('web')-
     Route::get('home', [HomeController::class, 'action'])->name('home')->middleware('auth');
     Route::get('', [welcomeController::class, 'index'])->name('welcom');
     Route::get('download', [DownloadController::class, 'download'])->name('download')->middleware('auth');
-
+    Route::get('download/list', [DownloadController::class, 'downloadList'])->name('downloadList')->middleware('auth');
     Route::match(['get'], 'auth', [AuthController::class, 'action'])->name('auth')->middleware('web');
 
     // Redirect Routes

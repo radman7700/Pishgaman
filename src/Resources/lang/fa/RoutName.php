@@ -10,4 +10,5 @@ return [
     'departments' => 'دپارتمان',
     'cogs' => 'تنظیمات',
     'BackUpAction'=>'مدیریت دیتابیس',
+    'downloadList'=>'مدیریت دانلود‌ها',
 ];

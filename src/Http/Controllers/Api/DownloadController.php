@@ -61,16 +61,26 @@ class DownloadController extends Controller
         if (!$this->isValidAction('getList', 'GET')) {
             return response()->json(['errors' => 'requestNotAllowed'], 422);
         }
-
+        $CurrentUser = auth()->user();
         $options = [
             'sortings' => [
-                ['column' => 'created_at', 'order' => 'desc'],
+                ['column' => 'created_at', 'order' => 'desc']
             ],
-            'get' => false,
-            'take'=>4
+            'conditions' => [
+                ['column' => 'user_id', 'operator' => '=', 'value' => $CurrentUser->id]
+            ],
+            'page' => $request->page ?? 1, // صفحه‌ای که می‌خواهید دریافت کنید
+            'count' => false, // اگر شمارش نمی‌خواهید
+            'get' => false, // اگر به جای صفحه‌بندی، همه رکوردها را می‌خواهید
         ];
-        $downloadList = $this->downloadRepository->Get($options);
-        return response()->json(['downloadList'=>$downloadList]);        
-    }
         
+        // تعداد رکوردها در هر صفحه
+        $perPage = 10;
+        
+        // فراخوانی تابع برای دریافت داده‌های صفحه‌بندی شده
+        $downloads = $this->downloadRepository->Get($options, $perPage);
+
+        return response()->json(['downloadList'=>$downloads]); 
+
+    }
 }

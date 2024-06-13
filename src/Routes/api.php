@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Pishgaman\Pishgaman\Http\Controllers\Api','middlew
     });
 
     Route::match(['get','post','put','delete'],'api/profile', [ProfileController::class, 'action'])->name('homeApi');
-    Route::match(['get','post','put','delete'],'api/download', [departmentsController::class, 'action'])->name('downloadApi');
+    Route::match(['get','post','put','delete'],'api/download', [DownloadController::class, 'action'])->name('downloadApi');
     
 });
 
